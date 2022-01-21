@@ -32,6 +32,7 @@ func _ready():
 	stats = State.currentStats
 	animationTree.active = true
 	stateMachine.start("Idle")
+	$HeroCollision.disabled = true
 
 func _physics_process(delta) -> void:
 	match playerState:
@@ -53,11 +54,11 @@ func move_state(delta) -> void:
 	if input.length() != 0:
 		velocity += input*((stats.speed*15+100)/4)*delta
 		velocity = velocity.clamped((stats.speed*15+100)*delta)
-		animationTree.set("parameters/Idle/blend_position", input.x)
-		animationTree.set("parameters/Move/blend_position", input.x)
-		animationTree.set("parameters/Roll/blend_position", input.x)
-		animationTree.set("parameters/Attack/blend_position", input)
 		stateMachine.travel("Move")
+		animationTree.set("parameters/Idle/blend_position", input)
+		animationTree.set("parameters/Move/blend_position", input)
+		animationTree.set("parameters/Roll/blend_position", input)
+		animationTree.set("parameters/Attack/blend_position", input)
 		rollVector = input
 	else :
 		velocity = velocity.move_toward(Vector2.ZERO,((stats.speed*15+100)/4)*delta)
@@ -75,7 +76,6 @@ func roll_state(delta) -> void :
 	velocity = rollVector * (stats.speed*15+100) * 1.5 * delta
 	stateMachine.travel("Roll")
 	collider = move_and_collide(velocity)
-	print(stateMachine.get_current_node())
 
 func attack_state(delta) -> void:
 	velocity = Vector2.ZERO
@@ -83,5 +83,4 @@ func attack_state(delta) -> void:
 
 #When animation is finished
 func animation_finished() -> void:
-	print("finished")
 	playerState = MOVE
