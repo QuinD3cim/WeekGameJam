@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Smith.png-2e0a76cec8a9823a782713cbc3dc6a39.stex"
+path="res://.import/ArcherRoll.png-402fa7dc03180bd68215bf82a4569603.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/CharSprites/Smith.png"
-dest_files=[ "res://.import/Smith.png-2e0a76cec8a9823a782713cbc3dc6a39.stex" ]
+source_file="res://Art/CharRoll/ArcherRoll.png"
+dest_files=[ "res://.import/ArcherRoll.png-402fa7dc03180bd68215bf82a4569603.stex" ]
 
 [params]
 

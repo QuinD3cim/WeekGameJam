@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Script/UI/DialogText.gd" type="Script" id=1]
+[ext_resource path="res://Script/UI/DialogBox.gd" type="Script" id=2]
+
+[node name="DialogBox" type="ColorRect"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -134.0
+color = Color( 0.184314, 0.184314, 0.184314, 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DialogText" type="RichTextLabel" parent="."]
+margin_left = 192.0
+margin_top = 15.0
+margin_right = 1008.0
+margin_bottom = 120.0
+bbcode_enabled = true
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextTimer" type="Timer" parent="DialogText"]
+wait_time = 0.05
+autostart = true
+
+[node name="Name" type="RichTextLabel" parent="."]
+margin_left = 13.0
+margin_top = 97.0
+margin_right = 170.0
+margin_bottom = 127.0
+bbcode_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="end_text" from="DialogText" to="." method="_on_DialogText_end_text"]
+[connection signal="timeout" from="DialogText/TextTimer" to="DialogText" method="_on_Timer_timeout"]
