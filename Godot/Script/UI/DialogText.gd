@@ -7,6 +7,7 @@ extends RichTextLabel
 
 onready var timer = $TextTimer
 signal end_text
+signal mark_appear
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -23,6 +24,7 @@ func _on_Timer_timeout():
 	set_visible_characters(get_visible_characters()+1)
 	if get_visible_characters() > get_total_character_count():
 		timer.stop()
+		emit_signal("mark_appear")
 
 
 func click():
@@ -31,6 +33,7 @@ func click():
 			emit_signal("end_text")
 		else:
 			set_visible_characters(get_total_character_count())
+			emit_signal("mark_appear")
 		timer.stop()
 
 
