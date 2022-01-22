@@ -18,6 +18,10 @@ config/icon="res://icon.png"
 
 State="*res://Script/State.gd"
 
+[display]
+
+window/stretch/mode="2d"
+
 [input]
 
 move_up={
@@ -42,19 +46,29 @@ move_right={
 }
 melee_attack={
 "deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":74,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
  ]
 }
 roll={
 "deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":76,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":32,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
 }
 distance_attack={
 "deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":75,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":2,"pressed":false,"doubleclick":false,"script":null)
  ]
 }
+
+[layer_names]
+
+2d_physics/layer_1="World"
+2d_physics/layer_2="Player"
+2d_physics/layer_3="PlayerHurt"
+2d_physics/layer_4="Mob"
+2d_physics/layer_5="MobHurt"
+2d_physics/layer_6="Weapon"
+2d_physics/layer_7="Dodge"
 
 [physics]
 

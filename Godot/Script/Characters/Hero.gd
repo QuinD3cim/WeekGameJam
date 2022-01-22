@@ -14,6 +14,7 @@ var health                     # Current hero health
 var velocity = Vector2.ZERO
 var rollVector = Vector2.DOWN
 var collider
+var mouseDirection
 
 # Animation States
 onready var animationTree = $AnimationTree
@@ -29,8 +30,9 @@ var playerState = MOVE
 # Bow
 export (PackedScene) var arrow
 var shoot = true
-onready var shootTimer = $HitboxPivot/ArrowSpawn/BowTimer
-onready var arrowSpawn = $HitboxPivot/ArrowSpawn
+onready var shootTimer = $BowPivot/ArrowSpawn/BowTimer
+onready var arrowSpawn = $BowPivot/ArrowSpawn
+onready var bowPivot = $BowPivot
 
 
 ## Functions ##
@@ -43,6 +45,10 @@ func _ready():
 	stateMachine.start("Idle")
 
 func _physics_process(delta) -> void:
+	
+	mouseDirection = (get_global_mouse_position()-global_position).normalized()
+	bowPivot.rotation = mouseDirection.angle()
+	
 	match playerState:
 		MOVE:
 			move_state(delta)
@@ -68,8 +74,8 @@ func move_state(delta) -> void:
 		animationTree.set("parameters/Idle/blend_position", input)
 		animationTree.set("parameters/Move/blend_position", input)
 		animationTree.set("parameters/Roll/blend_position", input)
-		animationTree.set("parameters/Melee/blend_position", input)
-		animationTree.set("parameters/Distance/blend_position", input)
+		animationTree.set("parameters/Melee/blend_position", mouseDirection)
+		animationTree.set("parameters/Distance/blend_position", mouseDirection)
 		rollVector = input
 	else :
 		velocity = velocity.move_toward(Vector2.ZERO,((stats.speed*15+100)/4)*delta)
@@ -112,3 +118,7 @@ func make_bullet():
 
 func reloaded():
 	shoot = true
+
+func _on_Sword_area_entered(area):
+	area.owner.hurt(global_position,stats.strength)
+	pass # Replace with function body.
