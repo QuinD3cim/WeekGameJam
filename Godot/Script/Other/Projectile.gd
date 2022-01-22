@@ -29,3 +29,8 @@ func body_touched(body):
 # Function generated with Node Signals when body exits screen
 func _on_VisibilityNotifier2D_screen_exited():
 	queue_free()
+
+
+func _on_Projectile_area_entered(area):
+	area.owner.hurt("arrow",global_position,State.currentStats.dexterity)
+	queue_free()

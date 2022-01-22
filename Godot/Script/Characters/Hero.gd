@@ -15,6 +15,7 @@ var velocity = Vector2.ZERO
 var rollVector = Vector2.DOWN
 var collider
 var mouseDirection
+var attackDirection
 
 # Animation States
 onready var animationTree = $AnimationTree
@@ -30,6 +31,7 @@ var playerState = MOVE
 # Bow
 export (PackedScene) var arrow
 var shoot = true
+var cursorMove = true
 onready var shootTimer = $BowPivot/ArrowSpawn/BowTimer
 onready var arrowSpawn = $BowPivot/ArrowSpawn
 onready var bowPivot = $BowPivot
@@ -47,7 +49,8 @@ func _ready():
 func _physics_process(delta) -> void:
 	
 	mouseDirection = (get_global_mouse_position()-global_position).normalized()
-	bowPivot.rotation = mouseDirection.angle()
+	if cursorMove:
+		bowPivot.rotation = mouseDirection.angle()
 	
 	match playerState:
 		MOVE:
@@ -74,8 +77,6 @@ func move_state(delta) -> void:
 		animationTree.set("parameters/Idle/blend_position", input)
 		animationTree.set("parameters/Move/blend_position", input)
 		animationTree.set("parameters/Roll/blend_position", input)
-		animationTree.set("parameters/Melee/blend_position", mouseDirection)
-		animationTree.set("parameters/Distance/blend_position", mouseDirection)
 		rollVector = input
 	else :
 		velocity = velocity.move_toward(Vector2.ZERO,((stats.speed*15+100)/4)*delta)
@@ -85,8 +86,10 @@ func move_state(delta) -> void:
 
 	#Attack or roll
 	if Input.is_action_pressed("melee_attack") :
+		attackDirection = mouseDirection
 		playerState = MELEE
 	if shoot and Input.is_action_just_pressed("distance_attack") :
+		attackDirection = mouseDirection
 		playerState = DISTANCE
 	if Input.is_action_pressed("roll") :
 		playerState = ROLL
@@ -97,12 +100,15 @@ func roll_state(delta) -> void :
 	collider = move_and_collide(velocity)
 	
 func melee_state(delta) -> void:
+	animationTree.set("parameters/Melee/blend_position", attackDirection)
 	velocity = Vector2.ZERO
 	stateMachine.travel("Melee")
 
 func distance_state(delta) -> void:
 	if shoot :
+		animationTree.set("parameters/Distance/blend_position", attackDirection)
 		shoot = false
+		cursorMove = false
 		stateMachine.travel("Distance")
 		velocity = Vector2.ZERO
 
@@ -115,10 +121,10 @@ func make_bullet():
 	owner.add_child(a)
 	a.transform = arrowSpawn.global_transform
 	shootTimer.start()
+	cursorMove = true
 
 func reloaded():
 	shoot = true
 
 func _on_Sword_area_entered(area):
-	area.owner.hurt(global_position,stats.strength)
-	pass # Replace with function body.
+	area.owner.hurt("sword",global_position,stats.strength)
