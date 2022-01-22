@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Script/UI/DialogText.gd" type="Script" id=1]
 [ext_resource path="res://Script/UI/DialogBox.gd" type="Script" id=2]
@@ -14,6 +14,37 @@ font_data = ExtResource( 4 )
 [sub_resource type="DynamicFont" id=2]
 size = 20
 font_data = ExtResource( 5 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "MarkAnimation"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1003, 110 ), Vector2( 1003, 100 ), Vector2( 1003, 110 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1003, 110 ) ]
+}
 
 [node name="DialogBox" type="ColorRect"]
 anchor_top = 1.0
@@ -69,6 +100,11 @@ vframes = 3
 position = Vector2( 1003, 110 )
 scale = Vector2( 0.296875, 0.53125 )
 texture = ExtResource( 6 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Mark"]
+autoplay = "MarkAnimation"
+anims/MarkAnimation = SubResource( 3 )
+anims/RESET = SubResource( 4 )
 
 [connection signal="end_text" from="DialogText" to="." method="_on_DialogText_end_text"]
 [connection signal="mark_appear" from="DialogText" to="." method="_on_DialogText_mark_appear"]
