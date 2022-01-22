@@ -6,7 +6,10 @@
 [node name="TestLevel" type="YSort"]
 
 [node name="Hero" parent="." instance=ExtResource( 1 )]
-position = Vector2( 201, 99 )
+position = Vector2( 384, 44 )
 
 [node name="Ennemy" parent="." instance=ExtResource( 2 )]
-position = Vector2( 365, 138 )
+position = Vector2( 191, 341 )
+
+[node name="Ennemy2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 620, 344 )

@@ -1,9 +1,10 @@
-[gd_scene load_steps=58 format=2]
+[gd_scene load_steps=59 format=2]
 
 [ext_resource path="res://Art/Effects/Slash.png" type="Texture" id=1]
 [ext_resource path="res://Script/Characters/Hero.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/Other/Projectile.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Art/CharSprites/Hero.png" type="Texture" id=4]
+[ext_resource path="res://Art/crosshair.png" type="Texture" id=5]
 
 [sub_resource type="CapsuleShape2D" id=2]
 radius = 8.99999
@@ -1203,7 +1204,7 @@ tracks/12/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 1 ]
+"values": [ 9 ]
 }
 tracks/13/type = "value"
 tracks/13/path = NodePath(".:collision_layer")
@@ -1215,7 +1216,7 @@ tracks/13/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 64 ]
+"values": [ 2 ]
 }
 
 [sub_resource type="Animation" id=25]
@@ -1581,7 +1582,8 @@ radius = 15.0
 height = 22.0
 
 [node name="Hero" type="KinematicBody2D"]
-collision_layer = 64
+collision_layer = 2
+collision_mask = 9
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
@@ -1670,8 +1672,9 @@ position = Vector2( 55, 0 )
 
 [node name="BowTimer" type="Timer" parent="BowPivot/ArrowSpawn"]
 
-[node name="Polygon2D" type="Polygon2D" parent="BowPivot/ArrowSpawn"]
-polygon = PoolVector2Array( 0, 7, 7, 1, -1, -8, -7, -1 )
+[node name="Crossair" type="Sprite" parent="BowPivot/ArrowSpawn"]
+texture = ExtResource( 5 )
+hframes = 8
 
 [connection signal="area_entered" from="HitboxPivot/Sword" to="." method="_on_Sword_area_entered"]
 [connection signal="timeout" from="BowPivot/ArrowSpawn/BowTimer" to="." method="reloaded"]
