@@ -1,7 +1,18 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Script/UI/DialogText.gd" type="Script" id=1]
 [ext_resource path="res://Script/UI/DialogBox.gd" type="Script" id=2]
+[ext_resource path="res://Art/CharSprites/Hero.png" type="Texture" id=3]
+[ext_resource path="res://Art/Font/DotGothic16-Regular.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Art/Font/PressStart2P-Regular.ttf" type="DynamicFontData" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 20
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 20
+font_data = ExtResource( 5 )
 
 [node name="DialogBox" type="ColorRect"]
 anchor_top = 1.0
@@ -15,11 +26,14 @@ __meta__ = {
 }
 
 [node name="DialogText" type="RichTextLabel" parent="."]
-margin_left = 192.0
-margin_top = 15.0
+margin_left = 135.0
+margin_top = 46.0
 margin_right = 1008.0
-margin_bottom = 120.0
+margin_bottom = 127.0
+custom_fonts/normal_font = SubResource( 1 )
 bbcode_enabled = true
+bbcode_text = "placeholder"
+text = "placeholder"
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -30,14 +44,23 @@ wait_time = 0.05
 autostart = true
 
 [node name="Name" type="RichTextLabel" parent="."]
-margin_left = 13.0
-margin_top = 97.0
-margin_right = 170.0
-margin_bottom = 127.0
+margin_left = 136.0
+margin_top = 8.0
+margin_right = 1008.0
+margin_bottom = 40.0
+custom_fonts/normal_font = SubResource( 2 )
 bbcode_enabled = true
+text = "placeholder"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Portrait" type="Sprite" parent="."]
+position = Vector2( 67.8, 66.8 )
+scale = Vector2( 1.88125, 1.88125 )
+texture = ExtResource( 3 )
+hframes = 8
+vframes = 3
 
 [connection signal="end_text" from="DialogText" to="." method="_on_DialogText_end_text"]
 [connection signal="timeout" from="DialogText/TextTimer" to="DialogText" method="_on_Timer_timeout"]

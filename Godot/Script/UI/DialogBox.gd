@@ -7,6 +7,7 @@ extends ColorRect
 
 onready var text = $DialogText
 onready var text_name = $Name
+onready var portrait = $Portrait
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -22,6 +23,7 @@ func _ready():
 #	pass
 
 func display(string,character):
+	portrait.texture = load("res://Art/CharSprites/"+character+".png")
 	change_visibility(true)
 	text.input_text(string)
 	text_name.set_bbcode(character)
@@ -31,6 +33,7 @@ func display(string,character):
 func change_visibility(boolean):
 	self.set_visible(boolean)
 	text_name.set_visible(boolean)
+	portrait.set_visible(boolean)
 
 
 func _on_DialogText_end_text():
