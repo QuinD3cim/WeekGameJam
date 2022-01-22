@@ -19,3 +19,14 @@ var villageLevels = {
 	"shoemakerLevel" : 1,                # Current shoemaker level
 	"herbalistLevel" : 1                 # Current herbalit level
 	}
+
+var Villagers = ["Hero","Archer","Granny","Merchant","Sister","Smith"]
+var villagersAlive = {
+	"currentHero" : "Hero",
+	"Hero" : true,
+	"Archer" : true,
+	"Granny" : true,
+	"Merchant" : true,
+	"Sister" : true,
+	"Smith" : true 
+}

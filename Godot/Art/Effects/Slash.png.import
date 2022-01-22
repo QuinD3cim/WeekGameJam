@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ArcherRoll.png-402fa7dc03180bd68215bf82a4569603.stex"
+path="res://.import/Slash.png-f7f3b20bb4fd930d029a87cfd6dc1ba0.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/CharRoll/ArcherRoll.png"
-dest_files=[ "res://.import/ArcherRoll.png-402fa7dc03180bd68215bf82a4569603.stex" ]
+source_file="res://Art/Effects/Slash.png"
+dest_files=[ "res://.import/Slash.png-f7f3b20bb4fd930d029a87cfd6dc1ba0.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
