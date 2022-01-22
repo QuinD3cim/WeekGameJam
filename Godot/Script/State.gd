@@ -3,11 +3,15 @@ extends Node
 
 ## Variables ##
 
+var location = {
+	"place" : 1
+}
+
 # Hero stats
 var currentStats = {                  # Current hero stat levels
 	"health" : 5,
 	"currentHealth" : 500,
-	"strength" : 5,
+	"strength" : 5,                   # *35 for damage
 	"dexterity" : 5,
 	"speed" : 5
 }
