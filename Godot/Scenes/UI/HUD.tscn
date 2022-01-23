@@ -1,7 +1,18 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Art/Themes/HealthBar.tres" type="Theme" id=1]
 [ext_resource path="res://Script/UI/HUD.gd" type="Script" id=2]
+[ext_resource path="res://Art/Font/PressStart2P-Regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Art/Font/DotGothic16-Regular.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://icon.png" type="Texture" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 12
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 10
+font_data = ExtResource( 4 )
 
 [node name="HUD" type="Control"]
 anchor_right = 1.0
@@ -22,3 +33,42 @@ percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="EXPCount" type="Label" parent="."]
+margin_left = 9.0
+margin_top = 34.0
+margin_right = 128.0
+margin_bottom = 64.0
+custom_colors/font_color = Color( 0.0470588, 0.00392157, 0.847059, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "5/20"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GoldCount" type="ColorRect" parent="."]
+margin_left = 933.0
+margin_top = 9.0
+margin_right = 1016.0
+margin_bottom = 49.0
+color = Color( 0.254902, 0.254902, 0.254902, 0.501961 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GoldAmount" type="Label" parent="GoldCount"]
+margin_left = 5.0
+margin_top = 8.0
+margin_right = 40.0
+margin_bottom = 35.0
+custom_colors/font_color = Color( 0.788235, 0.443137, 0, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "123456"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GoldIcon" type="Sprite" parent="GoldCount"]
+position = Vector2( 63.5, 18.5 )
+scale = Vector2( 0.421875, 0.453125 )
+texture = ExtResource( 5 )
