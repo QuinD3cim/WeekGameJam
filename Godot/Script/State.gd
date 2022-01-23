@@ -13,7 +13,10 @@ var currentStats = {                  # Current hero stat levels
 	"currentHealth" : 500,
 	"strength" : 5,                   # *35 for damage
 	"dexterity" : 5,
-	"speed" : 5
+	"speed" : 5,
+	"gold": 0,
+	"currentEXP": 0,
+	"nextLevelEXP": 10,
 }
 
 # Village levels
