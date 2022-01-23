@@ -119,6 +119,7 @@ func animation_finished() -> void:
 func make_bullet():
 	var a = arrow.instance()
 	owner.add_child(a)
+	a.player = self
 	a.transform = arrowSpawn.global_transform
 	shootTimer.start()
 	cursorMove = true
@@ -127,4 +128,4 @@ func reloaded():
 	shoot = true
 
 func _on_Sword_area_entered(area):
-	area.owner.hurt("sword",global_position,stats.strength)
+	area.owner.hurt("sword",global_position,stats.strength,self)

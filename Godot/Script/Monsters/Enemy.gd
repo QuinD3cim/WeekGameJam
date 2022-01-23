@@ -14,8 +14,10 @@ var speed
 
 var knockback = Vector2.ZERO
 var move = true
+var aggro = false
 var collision
 var velocity = Vector2.ZERO
+var player
 
 onready var sprite = $Sprite
 onready var stunTimer = $HurtBox/Stun
@@ -32,13 +34,13 @@ var state = IDLE
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	attack = 75*level
-	speed = 100*level
+	speed = 110*level
 	life =  300*level
 
 func _physics_process(delta):
 	knockback = knockback.move_toward(Vector2.ZERO, 100*delta)
 	collision = move_and_collide(knockback)
-	
+
 	match state:
 		IDLE:
 			velocity = velocity.move_toward(Vector2.ZERO, speed*delta)
@@ -46,7 +48,8 @@ func _physics_process(delta):
 		WANDER:
 			pass
 		CHASE:
-			var player = detection.player
+			if !aggro :
+				player = detection.player
 			if player != null and move:
 				var direction = (player.global_position - global_position).normalized()
 				velocity = velocity.move_toward(direction*speed/50,speed*delta)
@@ -59,7 +62,7 @@ func seek_player():
 	if detection.can_see():
 		state = CHASE
 
-func hurt(weapon,heroPosition, damage):
+func hurt(weapon,heroPosition, damage, hero):
 	if(weapon == "sword"):
 		knockback = (global_position-heroPosition).normalized()*20
 		life -= damage*35
@@ -69,6 +72,9 @@ func hurt(weapon,heroPosition, damage):
 	if life < 1 :
 		queue_free()
 	else :
+		aggro = true
+		state = CHASE
+		player = hero
 		sprite.modulate = Color(0.97,0.44,0.44,1)
 		stunTimer.start()
 
