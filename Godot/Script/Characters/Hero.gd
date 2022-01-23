@@ -12,6 +12,7 @@ var stats                      # Current hero stat levels
 # Dynamic Values
 var health                     # Current hero health
 var velocity = Vector2.ZERO
+var knockback = Vector2.ZERO
 var rollVector = Vector2.DOWN
 var collider
 var mouseDirection
@@ -24,7 +25,8 @@ enum {
 	MOVE,
 	ROLL,
 	MELEE,
-	DISTANCE
+	DISTANCE,
+	KNOCKBACK
 }
 var playerState = MOVE
 
@@ -61,6 +63,11 @@ func _physics_process(delta) -> void:
 			melee_state(delta)
 		DISTANCE:
 			distance_state(delta)
+		KNOCKBACK:
+			knockback = knockback.move_toward(Vector2.ZERO, 100*delta)
+			collider = move_and_collide(knockback)
+			if knockback == Vector2.ZERO :
+				playerState = MOVE
 
 func move_state(delta) -> void:
 
@@ -99,12 +106,12 @@ func roll_state(delta) -> void :
 	stateMachine.travel("Roll")
 	collider = move_and_collide(velocity)
 	
-func melee_state(delta) -> void:
+func melee_state(_delta) -> void:
 	animationTree.set("parameters/Melee/blend_position", attackDirection)
 	velocity = Vector2.ZERO
 	stateMachine.travel("Melee")
 
-func distance_state(delta) -> void:
+func distance_state(_delta) -> void:
 	if shoot :
 		animationTree.set("parameters/Distance/blend_position", attackDirection)
 		shoot = false
@@ -129,3 +136,16 @@ func reloaded():
 
 func _on_Sword_area_entered(area):
 	area.owner.hurt("sword",global_position,stats.strength,self)
+
+func _on_HurtBox_area_entered(area):
+	knockback = (global_position-area.global_position).normalized()*15
+	animationTree.set("parameters/Hurt/blend_position", knockback)
+	stateMachine.travel("Hurt")
+	playerState = KNOCKBACK
+	$HurtBox.set_collision_layer_bit(2,false)
+	set_collision_mask_bit(3,false)
+	$Invicibility.start()
+
+func _on_Invicibility_timeout():
+	$HurtBox.set_collision_layer_bit(2,true)
+	set_collision_mask_bit(3,true)
