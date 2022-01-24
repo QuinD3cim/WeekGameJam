@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/crosshair.png-72c1370912977a1b64346298f81b55e4.stex"
+path="res://.import/tilemap unindexed.png-729585d14d6cd0cbcf43f80ea0bf6cc5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/crosshair.png"
-dest_files=[ "res://.import/crosshair.png-72c1370912977a1b64346298f81b55e4.stex" ]
+source_file="res://Art/Tiles/tilemap unindexed.png"
+dest_files=[ "res://.import/tilemap unindexed.png-729585d14d6cd0cbcf43f80ea0bf6cc5.stex" ]
 
 [params]
 

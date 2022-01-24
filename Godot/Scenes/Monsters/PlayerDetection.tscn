@@ -3,8 +3,8 @@
 [ext_resource path="res://Script/Monsters/PlayerDetection.gd" type="Script" id=1]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 224.0
-height = 120.0
+radius = 247.0
+height = 178.001
 
 [node name="PlayerDetection" type="Area2D"]
 modulate = Color( 1, 1, 1, 0.34902 )

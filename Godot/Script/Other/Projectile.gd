@@ -7,6 +7,7 @@ extends Area2D
 ## Variables ##
 
 export (int) var speed = 750
+var player
 
 
 ## Functions ##
@@ -30,7 +31,6 @@ func body_touched(body):
 func _on_VisibilityNotifier2D_screen_exited():
 	queue_free()
 
-
 func _on_Projectile_area_entered(area):
-	area.owner.hurt("arrow",global_position,State.currentStats.dexterity)
+	area.owner.hurt("arrow",global_position,State.currentStats.dexterity,player)
 	queue_free()

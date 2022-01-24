@@ -9,10 +9,6 @@ func can_see():
 
 func _on_PlayerDetection_body_entered(body):
 	player = body
-	print("target found")
-	print(player)
 
-func _on_PlayerDetection_body_exited(body):
-	print("Target lost")
-	print(body)
+func _on_PlayerDetection_body_exited(_body):
 	player = null
