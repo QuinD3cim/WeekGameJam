@@ -37,7 +37,7 @@ var state = IDLE
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	attack = 75*level
+	attack = 130*level
 	speed = 110*level
 	life =  300*level
 	
@@ -96,6 +96,5 @@ func hurt(weapon,heroPosition, damage, hero):
 		player = hero
 		stateMachine.travel("Hurt")
 
-
-func _on_AttackZone_body_entered(body):
+func _on_AttackZone_body_entered(_body):
 	$PivotPoint/AttackZone/AttackCollision.disabled = true

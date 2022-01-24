@@ -3,6 +3,8 @@ extends KinematicBody2D
 
 ## Signals ##
 
+signal dead
+
 
 ## Variables ##
 
@@ -10,7 +12,6 @@ extends KinematicBody2D
 var stats                      # Current hero stat levels
 
 # Dynamic Values
-var health                     # Current hero health
 var velocity = Vector2.ZERO
 var knockback = Vector2.ZERO
 var rollVector = Vector2.DOWN
@@ -49,7 +50,7 @@ func _ready():
 	stateMachine.start("Idle")
 
 func _physics_process(delta) -> void:
-	
+	print(State.currentStats.currentHealth)
 	mouseDirection = (get_global_mouse_position()-global_position).normalized()
 	if cursorMove:
 		bowPivot.rotation = mouseDirection.angle()
@@ -138,13 +139,18 @@ func _on_Sword_area_entered(area):
 	area.owner.hurt("sword",global_position,stats.strength,self)
 
 func _on_HurtBox_area_entered(area):
-	knockback = (global_position-area.global_position).normalized()*15
-	animationTree.set("parameters/Hurt/blend_position", knockback)
-	stateMachine.travel("Hurt")
-	playerState = KNOCKBACK
-	$HurtBox.set_collision_layer_bit(2,false)
-	set_collision_mask_bit(3,false)
-	$Invicibility.start()
+	stats.currentHealth -= area.owner.attack
+	if (stats.currentHealth < 0) :
+		emit_signal("dead")
+		queue_free()
+	else :
+		knockback = (global_position-area.global_position).normalized()*15
+		animationTree.set("parameters/Hurt/blend_position", knockback)
+		stateMachine.travel("Hurt")
+		playerState = KNOCKBACK
+		$HurtBox.set_collision_layer_bit(2,false)
+		set_collision_mask_bit(3,false)
+		$Invicibility.start()
 
 func _on_Invicibility_timeout():
 	$HurtBox.set_collision_layer_bit(2,true)
