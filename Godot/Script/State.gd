@@ -28,7 +28,7 @@ var villageLevels = {
 	"archerLevel" : 1
 	}
 
-var Villagers = ["Hero","Archer","Granny","Merchant","Sister","Smith","Rogue","Shoemaker","Herbalist","Armorer"]
+var Villagers = ["Archer","Armorer","Granny","Herbalist","Hero","Merchant","Rogue","Shoemaker","Sister","Smith"]
 var villagersAlive = {
 	"deathCount" : 0,
 	"currentHero" : "Hero",
