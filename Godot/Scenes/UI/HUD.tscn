@@ -4,7 +4,7 @@
 [ext_resource path="res://Script/UI/HUD.gd" type="Script" id=2]
 [ext_resource path="res://Art/Font/PressStart2P-Regular.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://Art/Font/DotGothic16-Regular.ttf" type="DynamicFontData" id=4]
-[ext_resource path="res://icon.png" type="Texture" id=5]
+[ext_resource path="res://Art/CharSprites/goldcoin.png" type="Texture" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 12
@@ -69,6 +69,6 @@ __meta__ = {
 }
 
 [node name="GoldIcon" type="Sprite" parent="GoldCount"]
-position = Vector2( 63.5, 18.5 )
-scale = Vector2( 0.421875, 0.453125 )
+position = Vector2( 115, 71 )
+scale = Vector2( 2.03125, 2.09375 )
 texture = ExtResource( 5 )

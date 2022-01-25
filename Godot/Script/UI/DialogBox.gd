@@ -15,9 +15,6 @@ func _ready():
 	set_process_input(false)
 	change_visibility(false)
 	mark.set_visible(false)
-	
-	#for tests, to be removed
-	display("test llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll", "Granny")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
