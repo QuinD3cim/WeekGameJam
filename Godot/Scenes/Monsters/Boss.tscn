@@ -1,0 +1,74 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Art/MobSprites/snakeboss.png" type="Texture" id=1]
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 7.0
+height = 50.0
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 25.02
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 27.074
+
+[node name="Boss" type="Node2D"]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Tail" type="KinematicBody2D" parent="."]
+collision_layer = 8
+
+[node name="Sprite" type="Sprite" parent="Tail"]
+texture = ExtResource( 1 )
+hframes = 4
+frame = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tail"]
+rotation = 1.5708
+shape = SubResource( 2 )
+
+[node name="Body3" type="KinematicBody2D" parent="."]
+collision_layer = 8
+
+[node name="Sprite" type="Sprite" parent="Body3"]
+texture = ExtResource( 1 )
+hframes = 4
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Body3"]
+shape = SubResource( 3 )
+
+[node name="Body2" type="KinematicBody2D" parent="."]
+collision_layer = 8
+
+[node name="Sprite" type="Sprite" parent="Body2"]
+texture = ExtResource( 1 )
+hframes = 4
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Body2"]
+shape = SubResource( 3 )
+
+[node name="Body1" type="KinematicBody2D" parent="."]
+collision_layer = 8
+
+[node name="Sprite" type="Sprite" parent="Body1"]
+texture = ExtResource( 1 )
+hframes = 4
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Body1"]
+shape = SubResource( 3 )
+
+[node name="Head" type="KinematicBody2D" parent="."]
+collision_layer = 8
+
+[node name="Sprite" type="Sprite" parent="Head"]
+position = Vector2( -5, 0 )
+texture = ExtResource( 1 )
+hframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Head"]
+shape = SubResource( 1 )

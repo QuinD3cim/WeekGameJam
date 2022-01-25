@@ -1,4 +1,4 @@
-extends Area2D
+extends Node2D
 
 
 ## Signals ##
@@ -7,7 +7,8 @@ extends Area2D
 ## Variables ##
 
 export (int) var speed = 750
-var player
+var attack
+onready var projectile = $Projectile
 
 
 ## Functions ##
@@ -25,6 +26,5 @@ func _physics_process(delta):
 func _on_VisibilityNotifier2D_screen_exited():
 	queue_free()
 
-func _on_Projectile_area_entered(area):
-	area.owner.hurt("arrow",global_position,State.currentStats.dexterity,player)
+func _on_Projectile_area_entered(_area):
 	queue_free()

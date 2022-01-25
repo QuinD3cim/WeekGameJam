@@ -19,9 +19,14 @@ var collision
 var velocity = Vector2.ZERO
 var player
 
+export (PackedScene) var arrow
+
 onready var sprite = $Sprite
 onready var detection = $PlayerDetection
 onready var wander = $WanderController
+onready var pivot = $PivotPoint
+onready var arrowSpawn = $PivotPoint/ArrowSpawn
+onready var cast = $RayCast2D
 
 # States
 onready var animationTree = $AnimationTree
@@ -40,16 +45,16 @@ var state = IDLE
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	attack = 90*level
-	speed = 90*level
-	life =  600*level
-	sprite.texture = load("res://Art/MobSprites/goblinarmored"+str(State.location.place)+".png")
+	speed = 110*level
+	life =  300*level
+	sprite.texture = load("res://Art/MobSprites/goblincrossbow"+str(State.location.place)+".png")
+	wander.start_wander_timer(rand_range(1,3))
 	animationTree.active = true
 	stateMachine.start("Idle")
 
 func _physics_process(delta):
 	knockback = knockback.move_toward(Vector2.ZERO, 100*delta)
 	collision = move_and_collide(knockback)
-
 	match state:
 		IDLE:
 			stateMachine.travel("Idle")
@@ -77,13 +82,15 @@ func _physics_process(delta):
 				wander.start_wander_timer(rand_range(1,3))
 		CHASE:
 			if !aggro :
-				if (detection.player != null) :
-					player = detection.player
-			animationTree.set("parameters/Move/blend_position", (player.global_position - global_position).normalized())
+				player = detection.player
 			if player != null and move:
+				animationTree.set("parameters/Move/blend_position", (player.global_position - global_position).normalized())
 				animationTree.set("parameters/Attack/blend_position", (player.global_position - global_position).normalized())
 				animationTree.set("parameters/Idle/blend_position", (player.global_position - global_position).normalized())
-				if ((player.global_position - global_position).length() < 80) :
+				cast.cast_to = (player.global_position - global_position)*2
+				var result = cast.get_collider()
+				if ((player.global_position - global_position).length() < 400 and result and result.is_in_group("hero")) :
+					pivot.rotation = (player.global_position - global_position).angle()
 					velocity = velocity.move_toward(Vector2.ZERO, speed*delta)
 					stateMachine.travel("Attack")
 					move = false
@@ -115,7 +122,7 @@ func seek_player():
 
 func hurt(weapon,heroPosition, damage, hero):
 	if(weapon == "sword"):
-		knockback = (global_position-heroPosition).normalized()*10
+		knockback = (global_position-heroPosition).normalized()*20
 		life -= damage*35
 		move = false
 	else :
@@ -132,6 +139,17 @@ func hurt(weapon,heroPosition, damage, hero):
 
 func _on_AttackZone_body_entered(_body):
 	$PivotPoint/AttackZone/AttackCollision.disabled = true
+	aggro = false
+	
+func shoot():
+	var a = arrow.instance()
+	owner.add_child(a)
+	a.attack = attack
+	a.transform = arrowSpawn.global_transform
+
+func recharge():
+	stateMachine.travel("Idle")
+	$Recharge.start()
 
 func die():
 	queue_free()

@@ -3,7 +3,6 @@ extends Area2D
 
 var player = null
 
-
 func can_see():
 	return player != null
 

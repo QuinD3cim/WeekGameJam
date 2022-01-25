@@ -4,7 +4,7 @@ extends Node
 ## Variables ##
 
 var location = {
-	"place" : 1
+	"place" : 3
 }
 
 # Hero stats
@@ -16,7 +16,7 @@ var currentStats = {                  # Current hero stat levels
 	"speed" : 5,
 	"gold": 0,
 	"currentEXP": 0,
-	"nextLevelEXP": 10,
+	"nextLevelEXP": 10
 }
 
 # Village levels
@@ -24,10 +24,11 @@ var villageLevels = {
 	"blacksmithLevel" : 1,               # Current blacksmith level
 	"armourerLevel" : 1,                 # Current armourer level
 	"shoemakerLevel" : 1,                # Current shoemaker level
-	"herbalistLevel" : 1                 # Current herbalit level
+	"herbalistLevel" : 1,                # Current herbalist level
+	"archerLevel" : 1
 	}
 
-var Villagers = ["Hero","Archer","Granny","Merchant","Sister","Smith"]
+var Villagers = ["Hero","Archer","Granny","Merchant","Sister","Smith","Rogue","Shoemaker","Herbalist","Armorer"]
 var villagersAlive = {
 	"deathCount" : 0,
 	"currentHero" : "Hero",
@@ -36,5 +37,9 @@ var villagersAlive = {
 	"Granny" : true,
 	"Merchant" : true,
 	"Sister" : true,
-	"Smith" : true 
+	"Smith" : true,
+	"Rogue" : true,
+	"Shoemaker" : true,
+	"Herbalist" : true,
+	"Armorer" : true
 }

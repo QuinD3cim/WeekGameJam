@@ -50,7 +50,6 @@ func _ready():
 	stateMachine.start("Idle")
 
 func _physics_process(delta) -> void:
-	print(State.currentStats.currentHealth)
 	mouseDirection = (get_global_mouse_position()-global_position).normalized()
 	if cursorMove:
 		bowPivot.rotation = mouseDirection.angle()
