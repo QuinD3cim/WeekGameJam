@@ -1733,7 +1733,7 @@ height = 14.0
 radius = 15.0
 height = 22.0
 
-[node name="Hero" type="KinematicBody2D"]
+[node name="Hero" type="KinematicBody2D" groups=["hero"]]
 collision_layer = 2
 collision_mask = 9
 script = ExtResource( 2 )
@@ -1781,7 +1781,7 @@ anim_player = NodePath("../AnimationPlayer")
 process_mode = 0
 parameters/playback = SubResource( 10 )
 parameters/Distance/blend_position = Vector2( -0.244057, -0.00578034 )
-parameters/Hurt/blend_position = Vector2( 0.266244, 0.62931 )
+parameters/Hurt/blend_position = Vector2( -0.0744849, 0.414141 )
 parameters/Idle/blend_position = Vector2( 0.408875, -0.241379 )
 parameters/Melee/blend_position = Vector2( 0, 0 )
 parameters/Move/blend_position = Vector2( 0.70206, 0.706897 )
@@ -1804,11 +1804,10 @@ disabled = true
 [node name="SwordSlash" type="Sprite" parent="HitboxPivot/Sword"]
 visible = false
 rotation = 1.5708
-scale = Vector2( 0.991967, 0.959802 )
 texture = ExtResource( 1 )
 hframes = 4
 
-[node name="HurtBox" type="Area2D" parent="."]
+[node name="HurtBox" type="Area2D" parent="." groups=["hero"]]
 collision_layer = 4
 collision_mask = 0
 monitorable = false

@@ -25,4 +25,9 @@ region_rect = Rect2( 0, 0, 19, 5 )
 rotation = 1.5708
 shape = SubResource( 1 )
 
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+position = Vector2( -0.5, 2.38419e-07 )
+scale = Vector2( 1.95, 0.5 )
+
 [connection signal="area_entered" from="." to="." method="_on_Projectile_area_entered"]
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
