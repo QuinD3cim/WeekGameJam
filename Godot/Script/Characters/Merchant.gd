@@ -9,6 +9,8 @@ onready var dialogBox = get_child(0).get_child(0)
 
 func _ready():
 	$Sprite.texture = load("res://Art/CharSprites/"+pnjName+".png")
+	if !State.villagersAlive[pnjName] :
+		queue_free()
 
 
 func talk():

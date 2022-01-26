@@ -55,3 +55,8 @@ func update_all():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+
+func _on_ReviveButton_button_down():
+	State.villagersAlive.currentHero = $CharacterSelectScrolldown.items[$CharacterSelectScrolldown.selected].name
+	SceneChanger.change_scene("res://Scenes/Menus/DeathScreen.tscn")

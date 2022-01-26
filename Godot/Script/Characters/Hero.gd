@@ -146,8 +146,7 @@ func _on_Sword_area_entered(area):
 func _on_HurtBox_area_entered(area):
 	stats.currentHealth -= area.owner.attack
 	if (stats.currentHealth < 0) :
-		emit_signal("dead")
-		queue_free()
+		death()
 	else :
 		repulse(area)
 
@@ -163,3 +162,9 @@ func repulse(area):
 	$HurtBox.set_collision_layer_bit(2,false)
 	set_collision_mask_bit(3,false)
 	$Invicibility.start()
+
+func death():
+	State.villagersAlive.deathCount += 1
+	State.villagersAlive[State.villagersAlive.currentHero] = false
+	SceneChanger.change_scene("res://Scenes/Menus/DeathScreen.tscn")
+	queue_free()

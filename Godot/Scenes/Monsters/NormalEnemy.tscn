@@ -1254,6 +1254,9 @@ height = 23.9996
 collision_layer = 4
 collision_mask = 3
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 playback_process_mode = 0

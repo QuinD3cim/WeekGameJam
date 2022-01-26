@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=2]
+[gd_scene load_steps=65 format=2]
 
 [ext_resource path="res://Art/Animation/torch.tres" type="Texture" id=1]
 [ext_resource path="res://Art/Animation/iceball.tres" type="Texture" id=2]
@@ -8,6 +8,11 @@
 [ext_resource path="res://Art/Tiles/[Base]BaseChip_pipo.png" type="Texture" id=6]
 [ext_resource path="res://Art/Animation/orangeball.tres" type="Texture" id=7]
 [ext_resource path="res://Art/Tiles/wall_sheet.png" type="Texture" id=8]
+[ext_resource path="res://icon.png" type="Texture" id=9]
+[ext_resource path="res://Scenes/LoadingZone.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/Monsters/BigEnemy.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/Monsters/DistantEnemy.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scenes/Monsters/NormalEnemy.tscn" type="PackedScene" id=13]
 
 [sub_resource type="ConvexPolygonShape2D" id=7]
 points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
@@ -838,6 +843,9 @@ points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
 2/shapes = [  ]
 2/z_index = 0
 
+[sub_resource type="RectangleShape2D" id=52]
+extents = Vector2( 110.5, 111 )
+
 [node name="World" type="Node2D"]
 
 [node name="Dungeon1" type="Node2D" parent="."]
@@ -859,3 +867,97 @@ tile_data = PoolIntArray( -1769450, 1, 0, -1769447, 1, 0, -262122, 1, 0, -262119
 
 [node name="Hero" parent="Dungeon1" instance=ExtResource( 4 )]
 position = Vector2( 28, 40 )
+
+[node name="LoadingZone" parent="Dungeon1" instance=ExtResource( 10 )]
+position = Vector2( 1978, -1822 )
+scene = "res://Scenes/Levels/Dungeon2.tscn"
+
+[node name="Icon" type="Sprite" parent="Dungeon1/LoadingZone"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 4, 15 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 9 )
+
+[node name="Mobs" type="Node2D" parent="Dungeon1"]
+
+[node name="BigEnemy" parent="Dungeon1/Mobs" instance=ExtResource( 11 )]
+position = Vector2( 1406, 146 )
+
+[node name="BigEnemy2" parent="Dungeon1/Mobs" instance=ExtResource( 11 )]
+position = Vector2( 2698, 384 )
+
+[node name="BigEnemy3" parent="Dungeon1/Mobs" instance=ExtResource( 11 )]
+position = Vector2( 2384, 924 )
+
+[node name="BigEnemy4" parent="Dungeon1/Mobs" instance=ExtResource( 11 )]
+position = Vector2( 1759, -60 )
+
+[node name="BigEnemy5" parent="Dungeon1/Mobs" instance=ExtResource( 11 )]
+position = Vector2( 1534, -930 )
+
+[node name="BigEnemy6" parent="Dungeon1/Mobs" instance=ExtResource( 11 )]
+position = Vector2( 1217, -1501 )
+
+[node name="BigEnemy7" parent="Dungeon1/Mobs" instance=ExtResource( 11 )]
+position = Vector2( 1134, -1091 )
+
+[node name="DistantEnemy" parent="Dungeon1/Mobs" instance=ExtResource( 12 )]
+position = Vector2( 1899, 273 )
+
+[node name="DistantEnemy2" parent="Dungeon1/Mobs" instance=ExtResource( 12 )]
+position = Vector2( 1947, -200 )
+
+[node name="DistantEnemy3" parent="Dungeon1/Mobs" instance=ExtResource( 12 )]
+position = Vector2( 2766, 86 )
+
+[node name="DistantEnemy4" parent="Dungeon1/Mobs" instance=ExtResource( 12 )]
+position = Vector2( 2766, 842 )
+
+[node name="DistantEnemy5" parent="Dungeon1/Mobs" instance=ExtResource( 12 )]
+position = Vector2( 1975, -1142 )
+
+[node name="DistantEnemy6" parent="Dungeon1/Mobs" instance=ExtResource( 12 )]
+position = Vector2( 1010, -1583 )
+
+[node name="DistantEnemy7" parent="Dungeon1/Mobs" instance=ExtResource( 12 )]
+position = Vector2( 969, -1158 )
+
+[node name="NormalEnemy" parent="Dungeon1/Mobs" instance=ExtResource( 13 )]
+position = Vector2( 1283, -105 )
+
+[node name="NormalEnemy2" parent="Dungeon1/Mobs" instance=ExtResource( 13 )]
+position = Vector2( 1226, 305 )
+
+[node name="NormalEnemy3" parent="Dungeon1/Mobs" instance=ExtResource( 13 )]
+position = Vector2( 2582, 807 )
+
+[node name="NormalEnemy4" parent="Dungeon1/Mobs" instance=ExtResource( 13 )]
+position = Vector2( 2839, 331 )
+
+[node name="NormalEnemy5" parent="Dungeon1/Mobs" instance=ExtResource( 13 )]
+position = Vector2( 1769, -1031 )
+
+[node name="NormalEnemy6" parent="Dungeon1/Mobs" instance=ExtResource( 13 )]
+position = Vector2( 1969, -875 )
+
+[node name="NormalEnemy7" parent="Dungeon1/Mobs" instance=ExtResource( 13 )]
+position = Vector2( 1048, -958 )
+
+[node name="NormalEnemy8" parent="Dungeon1/Mobs" instance=ExtResource( 13 )]
+position = Vector2( 1502, -1396 )
+
+[node name="NormalEnemy9" parent="Dungeon1/Mobs" instance=ExtResource( 13 )]
+position = Vector2( 1985, -1428 )
+
+[node name="NormalEnemy10" parent="Dungeon1/Mobs" instance=ExtResource( 13 )]
+position = Vector2( 1499, -1755 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Dungeon1"]
+position = Vector2( -102, 68 )
+collision_mask = 0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dungeon1/StaticBody2D"]
+shape = SubResource( 52 )

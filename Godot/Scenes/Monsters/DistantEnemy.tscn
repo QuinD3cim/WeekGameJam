@@ -796,6 +796,9 @@ height = 16.0001
 collision_layer = 4
 collision_mask = 3
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
 arrow = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
