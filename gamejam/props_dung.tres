@@ -462,3 +462,17 @@ points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 13/z_index = 0
+14/name = "UndeadEmpire2DAssets.png 14"
+14/texture = ExtResource( 1 )
+14/tex_offset = Vector2( 0, 0 )
+14/modulate = Color( 1, 1, 1, 1 )
+14/region = Rect2( 640, 640, 64, 128 )
+14/tile_mode = 0
+14/occluder_offset = Vector2( 0, 0 )
+14/navigation_offset = Vector2( 0, 0 )
+14/shape_offset = Vector2( 0, 0 )
+14/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+14/shape_one_way = false
+14/shape_one_way_margin = 0.0
+14/shapes = [  ]
+14/z_index = 0
