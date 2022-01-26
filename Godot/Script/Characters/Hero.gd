@@ -143,14 +143,17 @@ func _on_HurtBox_area_entered(area):
 		emit_signal("dead")
 		queue_free()
 	else :
-		knockback = (global_position-area.global_position).normalized()*15
-		animationTree.set("parameters/Hurt/blend_position", knockback)
-		stateMachine.travel("Hurt")
-		playerState = KNOCKBACK
-		$HurtBox.set_collision_layer_bit(2,false)
-		set_collision_mask_bit(3,false)
-		$Invicibility.start()
+		repulse(area)
 
 func _on_Invicibility_timeout():
 	$HurtBox.set_collision_layer_bit(2,true)
 	set_collision_mask_bit(3,true)
+
+func repulse(area):
+	knockback = (global_position-area.global_position).normalized()*15
+	animationTree.set("parameters/Hurt/blend_position", knockback)
+	stateMachine.travel("Hurt")
+	playerState = KNOCKBACK
+	$HurtBox.set_collision_layer_bit(2,false)
+	set_collision_mask_bit(3,false)
+	$Invicibility.start()

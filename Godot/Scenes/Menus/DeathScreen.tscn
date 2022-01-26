@@ -1,0 +1,310 @@
+[gd_scene load_steps=36 format=2]
+
+[ext_resource path="res://Art/Tiles/Village.tres" type="TileSet" id=1]
+[ext_resource path="res://Art/CharSprites/Rogue.png" type="Texture" id=2]
+[ext_resource path="res://Art/CharSprites/Archer.png" type="Texture" id=3]
+[ext_resource path="res://Art/CharSprites/Armorer.png" type="Texture" id=4]
+[ext_resource path="res://Art/CharSprites/Shoemaker.png" type="Texture" id=5]
+[ext_resource path="res://Art/CharSprites/Smith.png" type="Texture" id=6]
+[ext_resource path="res://Art/CharSprites/Merchant.png" type="Texture" id=7]
+[ext_resource path="res://Art/CharSprites/Granny.png" type="Texture" id=8]
+[ext_resource path="res://Art/CharSprites/Sister.png" type="Texture" id=9]
+[ext_resource path="res://Art/CharSprites/Herbalist.png" type="Texture" id=10]
+[ext_resource path="res://Art/Font/PressStart2P-Regular.ttf" type="DynamicFontData" id=11]
+[ext_resource path="res://Art/CharSprites/Hero.png" type="Texture" id=12]
+[ext_resource path="res://Art/Font/DotGothic16-Regular.ttf" type="DynamicFontData" id=13]
+[ext_resource path="res://Script/Menus/DeathScreen.gd" type="Script" id=14]
+[ext_resource path="res://Art/CharSprites/goldcoin.png" type="Texture" id=15]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 11 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 8 )
+region = Rect2( 0, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 10 )
+region = Rect2( 0, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 12 )
+region = Rect2( 0, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 7 )
+region = Rect2( 0, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 5 )
+region = Rect2( 0, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 9 )
+region = Rect2( 0, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 6 )
+region = Rect2( 0, 0, 64, 64 )
+
+[sub_resource type="DynamicFont" id=12]
+size = 120
+font_data = ExtResource( 11 )
+
+[sub_resource type="DynamicFont" id=13]
+size = 30
+font_data = ExtResource( 13 )
+
+[sub_resource type="DynamicFont" id=14]
+font_data = ExtResource( 13 )
+
+[sub_resource type="DynamicFont" id=15]
+font_data = ExtResource( 13 )
+
+[sub_resource type="DynamicFont" id=16]
+size = 20
+font_data = ExtResource( 13 )
+
+[sub_resource type="DynamicFont" id=17]
+size = 20
+font_data = ExtResource( 13 )
+
+[sub_resource type="DynamicFont" id=18]
+size = 20
+font_data = ExtResource( 13 )
+
+[sub_resource type="DynamicFont" id=19]
+size = 20
+font_data = ExtResource( 13 )
+
+[sub_resource type="DynamicFont" id=20]
+font_data = ExtResource( 13 )
+
+[node name="DeathScreenHandler" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+format = 1
+tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65543, 0, 0, 65544, 0, 0, 65545, 0, 0, 65546, 0, 0, 65547, 0, 0, 65548, 0, 0, 65549, 0, 0, 65550, 0, 0, 65551, 0, 0, 131072, 0, 0, 131073, 0, 0, 131074, 0, 0, 131075, 0, 0, 131076, 0, 0, 131077, 0, 0, 131078, 0, 0, 131079, 0, 0, 131080, 0, 0, 131081, 0, 0, 131082, 0, 0, 131083, 0, 0, 131084, 0, 0, 131085, 0, 0, 131086, 0, 0, 131087, 0, 0, 196608, 0, 0, 196609, 0, 0, 196610, 0, 0, 196611, 0, 0, 196612, 0, 0, 196613, 0, 0, 196614, 0, 0, 196615, 0, 0, 196616, 0, 0, 196617, 0, 0, 196618, 0, 0, 196619, 0, 0, 196620, 0, 0, 196621, 0, 0, 196622, 0, 0, 196623, 0, 0, 262144, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0, 262154, 0, 0, 262155, 0, 0, 262156, 0, 0, 262157, 0, 0, 262158, 0, 0, 262159, 0, 0, 327680, 0, 0, 327681, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0, 327690, 0, 0, 327691, 0, 0, 327692, 0, 0, 327693, 0, 0, 327694, 0, 0, 327695, 0, 0, 393216, 0, 0, 393217, 0, 0, 393218, 0, 0, 393219, 0, 0, 393220, 0, 0, 393221, 0, 0, 393222, 0, 0, 393223, 0, 0, 393224, 0, 0, 393225, 0, 0, 393226, 0, 0, 393227, 0, 0, 393228, 0, 0, 393229, 0, 0, 393230, 0, 0, 393231, 0, 0, 458752, 0, 0, 458753, 0, 0, 458754, 0, 0, 458755, 0, 0, 458756, 0, 0, 458757, 0, 0, 458758, 0, 0, 458759, 0, 0, 458760, 0, 0, 458761, 0, 0, 458762, 0, 0, 458763, 0, 0, 458764, 0, 0, 458765, 0, 0, 458766, 0, 0, 458767, 0, 0, 524288, 0, 0, 524289, 0, 0, 524290, 0, 0, 524291, 0, 0, 524292, 0, 0, 524293, 0, 0, 524294, 0, 0, 524295, 0, 0, 524296, 0, 0, 524297, 0, 0, 524298, 0, 0, 524299, 0, 0, 524300, 0, 0, 524301, 0, 0, 524302, 0, 0, 524303, 0, 0, 589824, 0, 0, 589825, 0, 0, 589826, 0, 0, 589827, 0, 0, 589828, 0, 0, 589829, 0, 0, 589830, 0, 0, 589831, 0, 0, 589832, 0, 0, 589833, 0, 0, 589834, 0, 0, 589835, 0, 0, 589836, 0, 0, 589837, 0, 0, 589838, 0, 0, 589839, 0, 0 )
+
+[node name="CharacterSelectScrolldown" type="OptionButton" parent="."]
+margin_left = 538.0
+margin_top = 209.0
+margin_right = 820.0
+margin_bottom = 279.0
+custom_fonts/font = SubResource( 1 )
+text = "Archer"
+icon = SubResource( 2 )
+items = [ "Archer", SubResource( 2 ), false, 0, null, "Armorer", SubResource( 3 ), false, 1, null, "Granny", SubResource( 4 ), false, 2, null, "Herbalist", SubResource( 5 ), false, 3, null, "Hero", SubResource( 6 ), false, 4, null, "Merchant", SubResource( 7 ), false, 5, null, "Rogue", SubResource( 8 ), false, 6, null, "Shoemaker", SubResource( 9 ), false, 7, null, "Sister", SubResource( 10 ), false, 8, null, "Smith", SubResource( 11 ), false, 9, null ]
+selected = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="IsThisDarkSouls" type="Label" parent="."]
+margin_left = 25.0
+margin_top = 47.0
+margin_right = 985.0
+margin_bottom = 167.0
+custom_colors/font_color = Color( 0.611765, 0, 0, 1 )
+custom_fonts/font = SubResource( 12 )
+text = "YOU DIED"
+
+[node name="EdgyAFText" type="Label" parent="."]
+margin_left = 98.0
+margin_top = 235.0
+margin_right = 443.0
+margin_bottom = 279.0
+custom_colors/font_color = Color( 0.654902, 0.258824, 0.258824, 1 )
+custom_fonts/font = SubResource( 13 )
+text = "Choose a life to usurp:"
+
+[node name="EdgyDSText" type="Label" parent="."]
+margin_left = 97.0
+margin_top = 316.0
+margin_right = 442.0
+margin_bottom = 360.0
+custom_colors/font_color = Color( 0.654902, 0.258824, 0.258824, 1 )
+custom_fonts/font = SubResource( 13 )
+text = "Strenghten thy soul:"
+
+[node name="ReviveButton" type="Button" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -181.0
+margin_top = -56.0
+margin_right = -17.0
+margin_bottom = -17.0
+custom_fonts/font = SubResource( 14 )
+text = "Return to the fight"
+
+[node name="AbandonButton" type="Button" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 17.0
+margin_top = -55.0
+margin_right = 181.0
+margin_bottom = -16.0
+custom_fonts/font = SubResource( 15 )
+text = "Abandon hope"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StatHandler" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HealthText" type="Label" parent="StatHandler"]
+margin_left = 640.0
+margin_top = 337.0
+margin_right = 832.0
+margin_bottom = 368.0
+custom_fonts/font = SubResource( 16 )
+text = "Health: 0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HealthGold" type="Label" parent="StatHandler"]
+margin_left = 450.0
+margin_top = 338.0
+margin_right = 576.0
+margin_bottom = 369.0
+custom_fonts/font = SubResource( 16 )
+text = "0"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SpeedGold" type="Label" parent="StatHandler"]
+margin_left = 448.0
+margin_top = 482.0
+margin_right = 576.0
+margin_bottom = 513.0
+custom_fonts/font = SubResource( 16 )
+text = "0"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DextGold" type="Label" parent="StatHandler"]
+margin_left = 448.0
+margin_top = 433.0
+margin_right = 576.0
+margin_bottom = 464.0
+custom_fonts/font = SubResource( 16 )
+text = "0"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StrengthGold" type="Label" parent="StatHandler"]
+margin_left = 448.0
+margin_top = 384.0
+margin_right = 575.0
+margin_bottom = 415.0
+custom_fonts/font = SubResource( 16 )
+text = "0"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StrengthText" type="Label" parent="StatHandler"]
+margin_left = 640.0
+margin_top = 384.0
+margin_right = 833.0
+margin_bottom = 416.0
+custom_fonts/font = SubResource( 17 )
+text = "Strength: 0"
+
+[node name="DextText" type="Label" parent="StatHandler"]
+margin_left = 640.0
+margin_top = 432.0
+margin_right = 830.0
+margin_bottom = 464.0
+custom_fonts/font = SubResource( 18 )
+text = "Dexterity: 0"
+
+[node name="SpeedText" type="Label" parent="StatHandler"]
+margin_left = 640.0
+margin_top = 480.0
+margin_right = 831.0
+margin_bottom = 512.0
+custom_fonts/font = SubResource( 19 )
+text = "Speed: 0"
+
+[node name="HealthButton" type="Button" parent="StatHandler"]
+margin_left = 593.0
+margin_top = 336.0
+margin_right = 624.0
+margin_bottom = 367.0
+custom_fonts/font = SubResource( 20 )
+text = "+"
+
+[node name="StrengthButton" type="Button" parent="StatHandler"]
+margin_left = 593.0
+margin_top = 384.0
+margin_right = 624.0
+margin_bottom = 415.0
+custom_fonts/font = SubResource( 20 )
+text = "+"
+
+[node name="DextButton" type="Button" parent="StatHandler"]
+margin_left = 593.0
+margin_top = 433.0
+margin_right = 624.0
+margin_bottom = 464.0
+custom_fonts/font = SubResource( 20 )
+text = "+"
+
+[node name="SpeedButton" type="Button" parent="StatHandler"]
+margin_left = 593.0
+margin_top = 481.0
+margin_right = 624.0
+margin_bottom = 512.0
+custom_fonts/font = SubResource( 20 )
+text = "+"
+
+[node name="GoldText" type="Label" parent="."]
+margin_left = 191.0
+margin_top = 386.0
+margin_right = 383.0
+margin_bottom = 417.0
+custom_fonts/font = SubResource( 16 )
+text = "Gold: 0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GoldIcon" type="Sprite" parent="."]
+position = Vector2( 223, 467 )
+scale = Vector2( 2.5, 2.5 )
+texture = ExtResource( 15 )
