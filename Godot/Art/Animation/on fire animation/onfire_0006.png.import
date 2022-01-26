@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tilemap unindexed.png-729585d14d6cd0cbcf43f80ea0bf6cc5.stex"
+path="res://.import/onfire_0006.png-1a925b6fa2249c333ee2b6a5dee108a4.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Tiles/tilemap unindexed.png"
-dest_files=[ "res://.import/tilemap unindexed.png-729585d14d6cd0cbcf43f80ea0bf6cc5.stex" ]
+source_file="res://Art/Animation/on fire animation/onfire_0006.png"
+dest_files=[ "res://.import/onfire_0006.png-1a925b6fa2249c333ee2b6a5dee108a4.stex" ]
 
 [params]
 
