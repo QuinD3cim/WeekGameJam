@@ -11,7 +11,7 @@ config_version=4
 [application]
 
 config/name="WeekGameJam"
-run/main_scene="res://TestLevel.tscn"
+run/main_scene="res://BossTest.tscn"
 config/icon="res://icon.png"
 
 [autoload]
@@ -71,6 +71,7 @@ distance_attack={
 2d_physics/layer_6="Weapon"
 2d_physics/layer_7="Dodge"
 2d_physics/layer_8="MobAttack"
+2d_physics/layer_9="Boss"
 
 [physics]
 
