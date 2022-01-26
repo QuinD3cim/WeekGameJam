@@ -18,6 +18,7 @@ var rollVector = Vector2.DOWN
 var collider
 var mouseDirection
 var attackDirection
+var dialog = false
 
 # Animation States
 onready var animationTree = $AnimationTree
@@ -27,7 +28,8 @@ enum {
 	ROLL,
 	MELEE,
 	DISTANCE,
-	KNOCKBACK
+	KNOCKBACK,
+	DIALOG
 }
 var playerState = MOVE
 
@@ -50,24 +52,28 @@ func _ready():
 	stateMachine.start("Idle")
 
 func _physics_process(delta) -> void:
-	mouseDirection = (get_global_mouse_position()-global_position).normalized()
-	if cursorMove:
-		bowPivot.rotation = mouseDirection.angle()
 	
-	match playerState:
-		MOVE:
-			move_state(delta)
-		ROLL:
-			roll_state(delta)
-		MELEE:
-			melee_state(delta)
-		DISTANCE:
-			distance_state(delta)
-		KNOCKBACK:
-			knockback = knockback.move_toward(Vector2.ZERO, 100*delta)
-			collider = move_and_collide(knockback)
-			if knockback == Vector2.ZERO :
-				playerState = MOVE
+	if !State.location.charging :
+		mouseDirection = (get_global_mouse_position()-global_position).normalized()
+		if cursorMove:
+			bowPivot.rotation = mouseDirection.angle()
+		
+		match playerState:
+			MOVE:
+				move_state(delta)
+			ROLL:
+				roll_state(delta)
+			MELEE:
+				melee_state(delta)
+			DISTANCE:
+				distance_state(delta)
+			KNOCKBACK:
+				knockback = knockback.move_toward(Vector2.ZERO, 100*delta)
+				collider = move_and_collide(knockback)
+				if knockback == Vector2.ZERO :
+					playerState = MOVE
+			DIALOG :
+				stateMachine.travel("Idle")
 
 func move_state(delta) -> void:
 
@@ -92,10 +98,10 @@ func move_state(delta) -> void:
 	collider = move_and_collide(velocity)
 
 	#Attack or roll
-	if Input.is_action_pressed("melee_attack") :
+	if Input.is_action_pressed("melee_attack") and State.location.place != 0:
 		attackDirection = mouseDirection
 		playerState = MELEE
-	if shoot and Input.is_action_just_pressed("distance_attack") :
+	if shoot and Input.is_action_just_pressed("distance_attack") and State.location.place != 0:
 		attackDirection = mouseDirection
 		playerState = DISTANCE
 	if Input.is_action_pressed("roll") :

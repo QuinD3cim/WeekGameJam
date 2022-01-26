@@ -1832,6 +1832,10 @@ hframes = 8
 [node name="Invicibility" type="Timer" parent="."]
 process_mode = 0
 
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+process_mode = 0
+
 [connection signal="area_entered" from="HitboxPivot/Sword" to="." method="_on_Sword_area_entered"]
 [connection signal="area_entered" from="HurtBox" to="." method="_on_HurtBox_area_entered"]
 [connection signal="timeout" from="BowPivot/ArrowSpawn/BowTimer" to="." method="reloaded"]

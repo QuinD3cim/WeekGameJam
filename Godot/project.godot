@@ -11,13 +11,14 @@ config_version=4
 [application]
 
 config/name="WeekGameJam"
-run/main_scene="res://BossTest.tscn"
+run/main_scene="res://Scenes/Levels/Village.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 State="*res://Script/State.gd"
 DialogFile="*res://Script/DialogFile.gd"
+SceneChanger="*res://Scenes/Other/SceneChanger.tscn"
 
 [display]
 
