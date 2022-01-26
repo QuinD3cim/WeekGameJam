@@ -2,14 +2,14 @@ extends Node
 
 
 var ArmorerDialogs = {
-	1 : "I recognize you. I guess you failed... Remember what I taught you. Think clear, fight any darkness troubling your mind and let the light guide your sword.",
-	2 : "I recognize you. I guess you failed... Remember what I taught you. Think clear, fight any darkness troubling your mind and let the light guide your sword.",
-	3 : "Is the darkness taking over your mind? Can you still see the light? Shall we train together once more for you to shine anew?",
-	4 : "Is the darkness taking over your mind? Can you still see the light? Shall we train together once more for you to shine anew?",
-	5 : "Is the darkness taking over your mind? Can you still see the light? Shall we train together once more for you to shine anew?",
+	1 : "Hero, is it still you under that familiar appearance? I guess you failed... did you remember what I taught you? Think clear, fight any darkness troubling your mind, and be the light's sword!",
+	2 : "Hero, is it still you under that familiar appearance? I guess you failed... did you remember what I taught you? Think clear, fight any darkness troubling your mind, and be the light's sword!",
+	3 : "Hero, is the darkness taking over your mind? Do you still see the light? Shall we train together once more for you to shine anew?",
+	4 : "Hero, is the darkness taking over your mind? Do you still see the light? Shall we train together once more for you to shine anew?",
+	5 : "Hero, is the darkness taking over your mind? Do you still see the light? Shall we train together once more for you to shine anew?",
 	6 : "Darkness is taking over... life's leaving this land and with it every grace is dying... Stay with me, don't go.... I need you...",
 	7 : "Darkness is taking over... life's leaving this land and with it every grace is dying... Stay with me, don't go.... I need you...",
-	8 : "Darkness... all around us... I can't see... All I can hear is a deafening silence... Where did you go? What happened? Have they won already? ",
+	8 : "Darkness... all around us... I can't see... I can't hear it anymore... where did you go? What happened? Has it won already?",
 	9 : "Dark.... Darker.... Yet darker... "
 }
 
@@ -22,7 +22,7 @@ var GrannyDialogs = {
 	6 : "Child... Wouldn't you do an old woman a favour, and prevent her from having to watch her friends die?",
 	7 : "I appreaciate you protecting me, child, but my time would have come soon anyway... let those who have a future live, and let the elders protect them as well as they can...",
 	8 : "I appreaciate you protecting me, child, but my time would have come soon anyway... let those who have a future live, and let the elders protect them as well as they can...",
-	9 : "Child... I don't understand... You could have taken me instead of the others! Don't you want this village to have a future? I had less time left on this earth than anyone else here!"
+	9 : "Child... I don't understand... Am I so weak that you really thought of me as useless? Don't you want this village to have a future? Why have you kept saving those who belong to the past? "
 }
 
 var HerbalistDialogs = {
@@ -46,7 +46,7 @@ var ArcherDialogs = {
 	6 : "Nephew, I appreciate you protecting me, but I also know my hunting skills could be useful to your quest... Promise me to make your choices without letting our bond rig your judgement.",
 	7 : "Nephew, I appreciate you protecting me, but I also know my hunting skills could be useful to your quest... Promise me to make your choices without letting our bond rig your judgement.",
 	8 : "Nephew, I appreciate you protecting me, but I also know my hunting skills could be useful to your quest... Promise me to make your choices without letting our bond rig your judgement.",
-	9 : "Nephew... It would appear we reached an end... I'm proud of you and I'll always love you. May your heart lead you to success and bring justice to all those who died at the hands of those monsters. Go now, and never look back,  I'll always be with you."
+	9 : "Nephew... It would appear we reached an end... I'm proud of you and I'll always love you, whatever happens. May your golden heart lead you to success and may you live the happiest life a human can imagine. Go now, and never look back, for I'll always be with you."
 }
 
 var MerchantDialogs = {
@@ -62,15 +62,15 @@ var MerchantDialogs = {
 }
 
 var RogueDialogs = {
-	1 : "Hmmm... Intriguing, you're that little brat, aren't you? You just died, and you think it'll go better next time? How cute.",
-	2 : "This is clearly going to be a slaughter, why don't you kill me already, spare me having to watch you fail again and again?",
-	3 : "This is clearly going to be a slaughter, why don't you kill me already, spare me having to watch you fail again and again?",
-	4 : "This is clearly going to be a slaughter, why don't you kill me already, spare me having to watch you fail again and again?",
+	1 : "Hmmm... Failed already haven't you? And you think it'll go better next time? How cute.",
+	2 : "This is clearly going to be a slaughter, don't you want to kill me already and spare me having to watch you fail again and again?",
+	3 : "This is clearly going to be a slaughter, don't you want to kill me already and spare me having to watch you fail again and again?",
+	4 : "This is clearly going to be a slaughter, don't you want to kill me already and spare me having to watch you fail again and again?",
 	5 : "Pathetic... You really are as weak as I thought.... Can't even bring yourself to kill a criminal when he asks for it? Just let this be over already, there's nothing for me in here.",
 	6 : "Pathetic... You really are as weak as I thought.... Can't even bring yourself to kill a criminal when he asks for it? Just let this be over already, there's nothing for me in here.",
 	7 : "I don't think I want to talk with you right now... As you, oh generous Hero, can't come to kill me, I have some thinking to do....",
 	8 : "I don't think I want to talk with you right now... As you, oh generous Hero, can't come to kill me, I have some thinking to do....",
-	9 : "Hero... I just realized.... a new land.... new opportunities, a blank slate... I am not a criminal here! I can finally be free, I have a reason to live again!"
+	9 : "Hero... I just realized.... a new land.... new opportunities, a new start... I am not a criminal anymore here! I can finally be free! I now have a goal, hopes, dreams!"
 }
 
 var ShoemakerDialogs = {
@@ -86,15 +86,15 @@ var ShoemakerDialogs = {
 }
 
 var SisterDialogs = {
-	1 : "Is it really you, brother? I can see it, you're not realy fooling anyone. They all say you failed but I'm sure you'll get them this time! You've trained so hard to protect us!",
-	2 : "Is it really you, brother? I can see it, you're not realy fooling anyone. They all say you failed but I'm sure you'll get them this time! You've trained so hard to protect us!",
-	3 : "Is it really you, brother? I can see it, you're not realy fooling anyone. They all say you failed but I'm sure you'll get them this time! You've trained so hard to protect us!",
-	4 : "Is it really you, brother? I can see it, you're not realy fooling anyone. They all say you failed but I'm sure you'll get them this time! You've trained so hard to protect us!",
+	1 : "Is it really you, brother? That's so funny, it's like you put a weird costume on or something! They all say you failed but I'm sure it was just a little mistake! You've always protected us and that's never gonna change!",
+	2 : "Is it really you, brother? That's so funny, it's like you put a weird costume on or something! They all say you failed but I'm sure it was just a little mistake! You've always protected us and that's never gonna change!",
+	3 : "Is it really you, brother? That's so funny, it's like you put a weird costume on or something! They all say you failed but I'm sure it was just a little mistake! You've always protected us and that's never gonna change!",
+	4 : "Is it really you, brother? That's so funny, it's like you put a weird costume on or something! They all say you failed but I'm sure it was just a little mistake! You've always protected us and that's never gonna change!",
 	5 : "Why are there less and less people in here? Where are they going? They hiding? Is it a game? Oh I wanna play too!",
 	6 : "Why are there less and less people in here? Where are they going? They hiding? Is it a game? Oh I wanna play too!",
 	7 : "Why are there less and less people in here? Where are they going? They hiding? Is it a game? Oh I wanna play too!",
-	8 : "Come on guys show yourselves, it's not fun anymore, I feel lonely in here... Brother, can you ask them to come out please?",
-	9 : "Come on guys show yourselves, it's not fun anymore, I feel lonely in here... Brother, can you ask them to come out please?"
+	8 : "Come on guys show yourselves, it's not fun anymore, I feel lonely in here... Brother, can you ask them to come out pleeeeeease?",
+	9 : "Come on guys show yourselves, it's not fun anymore, I feel lonely in here... Brother, can you ask them to come out pleeeeeease?"
 }
 
 var SmithDialogs = {
@@ -106,7 +106,7 @@ var SmithDialogs = {
 	6 : "Lost it haven't they? Guess they're weak in mind... ye'll need more plans! Plans save from loosin' it!",
 	7 : "Lost it haven't they? Guess they're weak in mind... ye'll need more plans! Plans save from loosin' it!",
 	8 : "Why... whatye doin' Hero? Haven't no plan? Told ye, plans save! Look my, still fine aren't I?",
-	9 : "No plan... dat why... no damn plan... Ye just rush without thinkin innit? Ye need a plan if ye wanna live. A plan... a plan....."
+	9 : "No plan... no plan... dat why... no damn plan... ye just rush and thinkn't innit? Ye needed a plan... plan... plan..."
 }
 
 onready var data = State.villagersAlive
@@ -124,38 +124,35 @@ func get_dialog(character)->String:
 				"Granny" :
 					return "Mom... I'll pray Diana for you... May you become a flower as beautiful as your heart was in this world."
 				"Shoemaker":
-					return "Forever with me, in my every step... Wherever you are now, may the angels appreciate you as much as I did, old friend..."
+					return "Forever with me, in my every step... Wherever you are now, may your new friends appreciate you as much as I did, old friend..."
 				"Sister" :
 					return "Elapsam semel occasionem non ipse potest Iuppiter reprehendere. I hope you know what you're doing, nephew."
 				_:
 					return ArcherDialogs[deaths]
 		"Armorer":
 			if data.currentHero == "Shoemaker" :
-				return "A good friend lost to darkness... I'll miss you, may you become our guiding light and shine upon our every act...."
+				return "A good friend lost to darkness... I'll miss you, may you be with the light and shine in our every acts..."
 			else :
 				return ArmorerDialogs[deaths]
 		"Granny":
 			match data.currentHero :
 				"Archer":
-					return "When a child loses their parents, they are an orphan... When a mother loses her child, what should I be called? Pained and despaired is all that's coming to my mind..."
+					return "When a child loose their parents, they are an orphan... When a mother looses her child, what should I be called? Pained and despaired is all that's coming to my mind..."
 				"Sister":
-					return "Was it not enough to have my grandson killed? Couldn't you take me instead!?Did you really have to drag your sister along with you, to the grave?"
+					return "There is no word for a parent who lost their child, nor for a gandmother... No one should ever go through this..."
 				_:
 					return GrannyDialogs[deaths]
 		"Herbalist":
 			if data.currentHero == "Shoemaker" :
 				return "Hello my love, what do you... Wait... you are not... you... oh no... it can't... He can't... you can't... can't... can't......... no.............."
 			elif data.Shoemaker == false :
-				"Why... why not me... no... it must be some kind of nightmare... yes... that can't be... wake up... wake up.... please... let me... wake... up..."
+				"why... why not me... no... it must be some kind of nightmare... yes... that can't be... wake up... wake up.... please... let me... wake... up..."
 			elif data.currentHero == "Sister" :
 				return "Oh my! Hero, you.... I don't really know what to say... why her? She is... was... is she still?... such a nice girl... really clever, she would have become a great herbalist... Could you... give me a moment please? I need to... stay alone a bit..."
 			else :
 				return HerbalistDialogs[deaths]
 		"Merchant":
-			if data.currentHero == "Rogue" :
-				return "Huh, you took over that criminal scum. I guess that's one less thing to worry about then."
-			else :
-				return MerchantDialogs[deaths]
+			return MerchantDialogs[deaths]
 		"Rogue":
 			return RogueDialogs[deaths]
 		"Shoemaker":
@@ -168,20 +165,20 @@ func get_dialog(character)->String:
 					"Armorer" :
 						return "It was you, friend... may the light be with you forever... You were the brightest star this town had seen..."
 					"Archer" :
-						return "Few knew you like I did... None saw how kind you were... Rest in peace, friend, I hope your new forest is blooming..."
+						return "Few knew you like I did... None understood how big your heart was... Rest in peace, friend, I hope your new forest is blooming..."
 					_:
 						return ShoemakerDialogs[deaths]
 		"Sister":
 			match data.currentHero:
 				"Granny":
-					return "Hey grandma! How are you doing? Waiting for him to come back too? I'm so excited to see when he'll finally come home looking like himself and free all of our friends! Maybe you can prepare your tasty pie to celebrate that!"
+					return "Heya grandma! How are you doing? Waiting for him to come back too? I'm so excited to see when he'll finally come home looking like himself and free all of our friends! Maybe you can prepare your tasty pie to celebrate that!"
 				"Herbalist": 
 					return "Hello Ma'am! I promise I won't miss our next lesson, promise! I was just really worried about my brother, but I know he'll be fine and we'll see him again really soon! I can't wait!"
 				_:
 					return SisterDialogs[deaths]
 		"Smith":
 			if data.currentHero == "Armorer":
-				return "Dis a good plan Hero! Dat armor of his will help ye! No worry, I'll give ye the steel ye need! One man o' steel is enough for th'ole village!"
+				return "Dis a plan Hero! Dat armor of his will help ye! No worry, I'll give ye the steel ye need! One of the steel is enough for 'ole village!"
 			else :
 				return SmithDialogs[deaths]
 	 

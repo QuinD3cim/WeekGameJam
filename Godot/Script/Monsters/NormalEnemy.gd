@@ -39,7 +39,7 @@ var state = IDLE
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	attack = 150*level
+	attack = 130*level
 	speed = 110*level
 	life =  300*level
 	sprite.texture = load("res://Art/MobSprites/goblinsmall"+str(State.location.place)+".png")
